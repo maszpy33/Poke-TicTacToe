@@ -24,7 +24,7 @@ struct GameScoreBoardCell: View {
                         VStack {
                             Text("Names: ")
                                 .bold()
-                            Text("Scores: ")
+                            Text("Wins: ")
                                 .bold()
                         }
                         VStack {

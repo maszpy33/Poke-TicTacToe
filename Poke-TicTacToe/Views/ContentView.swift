@@ -26,6 +26,7 @@ struct ContentView: View {
                 }
             
             MainSettingsView()
+                .environmentObject(gvm)
                 .environmentObject(gsvm)
 //            Text("SettingsView")
                 .tabItem {

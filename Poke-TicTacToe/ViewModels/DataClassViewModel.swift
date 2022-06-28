@@ -31,8 +31,8 @@ class DataClassViewModel: Identifiable, ObservableObject {
     
     func fetchGame() {
         let request = NSFetchRequest<GameScoreEntity>(entityName: "GameScoreEntity")
-//        let sortDate = NSSortDescriptor(key: "gameDate", ascending: true)
-//        request.sortDescriptors = [sortDate]
+        let sortDate = NSSortDescriptor(key: "gameDate", ascending: true)
+        request.sortDescriptors = [sortDate]
         
         do {
             savedGames = try container.viewContext.fetch(request)

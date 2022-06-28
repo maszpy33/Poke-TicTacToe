@@ -49,6 +49,13 @@ final class GameScoreViewModel: DataClassViewModel {
         save()
     }
     
+    func deleteGameScore(gameScoreID: ObjectIdentifier) {
+        guard let gameScoreEntity = savedGames.first(where: { $0.id == gameScoreID }) else { return }
+        
+        container.viewContext.delete(gameScoreEntity)
+        save()
+    }
+    
     func changeThemeColor(themeColor: String) -> Color {
         switch themeColor {
         case "blue":

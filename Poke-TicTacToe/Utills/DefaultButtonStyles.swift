@@ -10,13 +10,16 @@ import SwiftUI
 
 
 struct DefaultButton: ButtonStyle {
+    
+    var buttonWidth: CGFloat
+    
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
-            .frame(width: 140)
+            .frame(width: buttonWidth)
             .padding()
             .font(.system(size: 20, weight: .bold))
             .foregroundColor(.black)
-            .background(LinearGradient(colors: [.green, .red], startPoint: .leading, endPoint: .trailing))
+            .background(LinearGradient(colors: [.blue, .purple], startPoint: .leading, endPoint: .trailing))
             .clipShape(RoundedRectangle(cornerRadius: 15))
             .scaleEffect(configuration.isPressed ? 0.8 : 1)
             .animation(.easeOut(duration: 0.2), value: configuration.isPressed)

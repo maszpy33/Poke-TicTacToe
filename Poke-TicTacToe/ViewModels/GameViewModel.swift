@@ -17,6 +17,9 @@ final class GameViewModel: ObservableObject {
     @Published var botIsMoving: Bool = false
     @Published var blockBoard: Bool = false
     
+    @Published var playerOneName: String = "Player1"
+    @Published var playerTwoName: String = "Player2"
+    
     @Published var playerOneImage: Image = Image(systemName: "xmark")
     @Published var playerTwoImage: Image = Image(systemName: "circle")
     @Published var playerOneWins: Int16 = 0
@@ -163,5 +166,22 @@ final class GameViewModel: ObservableObject {
             }
         }
         return false
+    }
+    
+    func changeThemeColor(themeColor: String) -> Color {
+        switch themeColor {
+        case "blue":
+            return Color.blue
+        case "orange":
+            return Color.orange
+        case "red":
+            return Color.red
+        case "green":
+            return Color.green
+        case "purple":
+            return Color.purple
+        default:
+            return Color.blue
+        }
     }
 }

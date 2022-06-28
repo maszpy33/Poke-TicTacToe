@@ -16,6 +16,7 @@ struct CustomToggleSwitch: View {
     
     @State var leftButtonText: String
     @State var rightButtonText: String
+    @State var buttonColor: Color
     
     var body: some View {
         VStack {
@@ -39,7 +40,7 @@ struct CustomToggleSwitch: View {
                         .padding()
                         .frame(width: width, height: height)
 //                        .background(Color.accentColor.opacity(0.2))
-                        .background(Color.accentColor)
+                        .background(buttonColor)
                         .cornerRadius(10)
                         .background(
                             RoundedRectangle(cornerRadius: 10, style: .continuous)

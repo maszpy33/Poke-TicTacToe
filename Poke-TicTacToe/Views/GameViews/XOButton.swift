@@ -21,9 +21,14 @@ struct XOButton: View {
     
     var body: some View {
         ZStack {
+//            LinearGradient(gradient: Gradient(colors: [.blue, .purple]), startPoint: .leading, endPoint: .trailing)
+//                .mask(RoundedRectangle(cornerRadius: 15)
+//                    .frame(width: 120, height: 120))
             RoundedRectangle(cornerRadius: 15)
                 .frame(width: 120, height: 120)
-                .foregroundColor(Color(red: 0.30, green: 0.8, blue: 0.56))
+                .foregroundColor(.purple)
+//                .foregroundColor(Color(red: 0.30, green: 0.8, blue: 0.56))
+            
             RoundedRectangle(cornerRadius: 15)
                 .frame(width: 100, height: 100)
                 .foregroundColor(.black)

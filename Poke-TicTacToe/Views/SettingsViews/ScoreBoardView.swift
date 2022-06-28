@@ -19,6 +19,20 @@ struct ScoreBoardView: View {
             
             ForEach(gsvm.searchGames, id: \.self) { gameData in
                 GameScoreBoardCell(gameData: gameData)
+                    .swipeActions(edge: .trailing) {
+                        Button(role: .destructive) {
+                            withAnimation(.linear(duration: 0.4)) {
+                                gsvm.deleteGameScore(gameScoreID: gameData.id)
+                            }
+
+                        } label: {
+                            Image(systemName: "trash")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 25, height: 25)
+                        }
+                    }
+                    .tint(.red)
             }
         }
     }

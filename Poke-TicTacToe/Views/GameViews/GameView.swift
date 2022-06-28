@@ -37,7 +37,7 @@ struct GameView: View {
             
             HStack {
                 VStack {
-                    Text("Player One")
+                    Text(gvm.playerOneName)
                         .foregroundColor(gvm.botIsMoving ? .gray : .primary)
                     gvm.playerOneImage
                         .resizable()
@@ -47,7 +47,7 @@ struct GameView: View {
                 .padding(.horizontal, 20)
                 
                 VStack {
-                    Text("Player Two")
+                    Text(gvm.playerTwoName)
                         .foregroundColor(gvm.botIsMoving ? .primary : .gray)
                     gvm.playerTwoImage
                         .resizable()
@@ -87,15 +87,16 @@ struct GameView: View {
                 Spacer()
                 
                 Button {
-                    gsvm.saveGameData(playerOneName: "player1", playerTwoName: "player2", playerOneWins: gvm.playerOneWins, playerTwoWins: gvm.playerTwoWins, rounds: 1, gameData: Date(), themeColor: "blue")
+                    gsvm.saveGameData(playerOneName: gvm.playerOneName, playerTwoName: gvm.playerTwoName, playerOneWins: gvm.playerOneWins, playerTwoWins: gvm.playerTwoWins, rounds: 1, gameData: Date(), themeColor: "purple")
                     print("saved game")
+                    gvm.resetGame()
                 } label: {
                     HStack {
                         Image(systemName: "square.and.arrow.down.fill")
                         Text("Save Score")
                     }
                 }
-                .buttonStyle(DefaultButton())
+                .buttonStyle(DefaultButton(buttonWidth: 140))
                 
                 Button {
                     gvm.resetGame()
@@ -105,7 +106,7 @@ struct GameView: View {
                         Text("Reset")
                     }
                 }
-                .buttonStyle(DefaultButton())
+                .buttonStyle(DefaultButton(buttonWidth: 140))
                 
                 Spacer()
             }
