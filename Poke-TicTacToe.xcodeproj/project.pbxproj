@@ -1,0 +1,573 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		9F31EA892863BB0B00C889FB /* ShakeEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F31EA882863BB0B00C889FB /* ShakeEffect.swift */; };
+		9F394C0D28652196005309A4 /* Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F394C0C28652196005309A4 /* Alerts.swift */; };
+		9F43D1422861207C004162A4 /* pokemon.json in Resources */ = {isa = PBXBuildFile; fileRef = 9F43D1412861207C004162A4 /* pokemon.json */; };
+		9F43D14528612443004162A4 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F43D14428612443004162A4 /* Settings.swift */; };
+		9F43D1482861261C004162A4 /* GameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F43D1472861261C004162A4 /* GameModel.swift */; };
+		9F6778962867BD9F005ACB5F /* MainPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F6778952867BD9F005ACB5F /* MainPickerView.swift */; };
+		9F6778982867BEBF005ACB5F /* IconPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F6778972867BEBF005ACB5F /* IconPickerView.swift */; };
+		9F67789A2867BF16005ACB5F /* IconViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F6778992867BF16005ACB5F /* IconViewModel.swift */; };
+		9F67789C2867C4DA005ACB5F /* CustomToggleSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F67789B2867C4DA005ACB5F /* CustomToggleSwitch.swift */; };
+		9F67789F286918EA005ACB5F /* PTTTGameCoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9F67789D286918EA005ACB5F /* PTTTGameCoreData.xcdatamodeld */; };
+		9F6778A628691B06005ACB5F /* GameScoreEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F6778A428691B06005ACB5F /* GameScoreEntity+CoreDataClass.swift */; };
+		9F6778A728691B06005ACB5F /* GameScoreEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F6778A528691B06005ACB5F /* GameScoreEntity+CoreDataProperties.swift */; };
+		9F6778AB2869297E005ACB5F /* DataClassViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F6778AA2869297E005ACB5F /* DataClassViewModel.swift */; };
+		9F9E6B76285B975E006D0A6D /* Poke_TicTacToeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F9E6B75285B975E006D0A6D /* Poke_TicTacToeApp.swift */; };
+		9F9E6B78285B975E006D0A6D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F9E6B77285B975E006D0A6D /* ContentView.swift */; };
+		9F9E6B7A285B975F006D0A6D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9F9E6B79285B975F006D0A6D /* Assets.xcassets */; };
+		9F9E6B7D285B975F006D0A6D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9F9E6B7C285B975F006D0A6D /* Preview Assets.xcassets */; };
+		9F9E6B86285B9786006D0A6D /* XOButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F9E6B84285B9786006D0A6D /* XOButton.swift */; };
+		9FCA1241286A710100677DAC /* GameScoreBoardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FCA1240286A710100677DAC /* GameScoreBoardCell.swift */; };
+		9FCA1243286A74CE00677DAC /* MainSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FCA1242286A74CE00677DAC /* MainSettingsView.swift */; };
+		9FCA1245286A76B600677DAC /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FCA1244286A76B600677DAC /* SettingsView.swift */; };
+		9FD51F63285D387E00D8B034 /* DefaultButtonStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FD51F62285D387E00D8B034 /* DefaultButtonStyles.swift */; };
+		9FD51F69285D398800D8B034 /* player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FD51F68285D398800D8B034 /* player.swift */; };
+		9FD51F6B285D3BA000D8B034 /* GameScoreViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FD51F6A285D3BA000D8B034 /* GameScoreViewModel.swift */; };
+		9FD51F6D285D3BA700D8B034 /* GameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FD51F6C285D3BA700D8B034 /* GameViewModel.swift */; };
+		9FD51F6F285D3BCF00D8B034 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FD51F6E285D3BCF00D8B034 /* GameView.swift */; };
+		9FD51F71285D3BD600D8B034 /* ScoreBoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FD51F70285D3BD600D8B034 /* ScoreBoardView.swift */; };
+		9FD51F732860D5A900D8B034 /* PokeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FD51F722860D5A900D8B034 /* PokeManager.swift */; };
+		9FD51F762860D5DC00D8B034 /* Pokemon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FD51F752860D5DC00D8B034 /* Pokemon.swift */; };
+		9FD51F7D2860E02800D8B034 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FD51F7C2860E02800D8B034 /* Helper.swift */; };
+		9FD51F7F2860E4D700D8B034 /* PokemonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FD51F7E2860E4D700D8B034 /* PokemonViewModel.swift */; };
+		9FD51F812860E5B100D8B034 /* PokemonPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FD51F802860E5B100D8B034 /* PokemonPickerView.swift */; };
+		9FD51F832860E60E00D8B034 /* gengar.png in Resources */ = {isa = PBXBuildFile; fileRef = 9FD51F822860E60E00D8B034 /* gengar.png */; };
+		9FD51F852860E99D00D8B034 /* PokemonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FD51F842860E99D00D8B034 /* PokemonView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		9F31EA882863BB0B00C889FB /* ShakeEffect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShakeEffect.swift; sourceTree = "<group>"; };
+		9F394C0C28652196005309A4 /* Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alerts.swift; sourceTree = "<group>"; };
+		9F43D1412861207C004162A4 /* pokemon.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = pokemon.json; sourceTree = "<group>"; };
+		9F43D14428612443004162A4 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		9F43D1472861261C004162A4 /* GameModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameModel.swift; sourceTree = "<group>"; };
+		9F6778952867BD9F005ACB5F /* MainPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPickerView.swift; sourceTree = "<group>"; };
+		9F6778972867BEBF005ACB5F /* IconPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconPickerView.swift; sourceTree = "<group>"; };
+		9F6778992867BF16005ACB5F /* IconViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconViewModel.swift; sourceTree = "<group>"; };
+		9F67789B2867C4DA005ACB5F /* CustomToggleSwitch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomToggleSwitch.swift; sourceTree = "<group>"; };
+		9F67789E286918EA005ACB5F /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		9F6778A428691B06005ACB5F /* GameScoreEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GameScoreEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
+		9F6778A528691B06005ACB5F /* GameScoreEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GameScoreEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		9F6778AA2869297E005ACB5F /* DataClassViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataClassViewModel.swift; sourceTree = "<group>"; };
+		9F9E6B72285B975E006D0A6D /* Poke-TicTacToe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Poke-TicTacToe.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9F9E6B75285B975E006D0A6D /* Poke_TicTacToeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Poke_TicTacToeApp.swift; sourceTree = "<group>"; };
+		9F9E6B77285B975E006D0A6D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		9F9E6B79285B975F006D0A6D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		9F9E6B7C285B975F006D0A6D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		9F9E6B84285B9786006D0A6D /* XOButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = XOButton.swift; path = "Poke-TicTacToe/Views/GameViews/XOButton.swift"; sourceTree = SOURCE_ROOT; };
+		9FCA1240286A710100677DAC /* GameScoreBoardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScoreBoardCell.swift; sourceTree = "<group>"; };
+		9FCA1242286A74CE00677DAC /* MainSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainSettingsView.swift; sourceTree = "<group>"; };
+		9FCA1244286A76B600677DAC /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		9FD51F62285D387E00D8B034 /* DefaultButtonStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultButtonStyles.swift; sourceTree = "<group>"; };
+		9FD51F68285D398800D8B034 /* player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = player.swift; sourceTree = "<group>"; };
+		9FD51F6A285D3BA000D8B034 /* GameScoreViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScoreViewModel.swift; sourceTree = "<group>"; };
+		9FD51F6C285D3BA700D8B034 /* GameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewModel.swift; sourceTree = "<group>"; };
+		9FD51F6E285D3BCF00D8B034 /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
+		9FD51F70285D3BD600D8B034 /* ScoreBoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreBoardView.swift; sourceTree = "<group>"; };
+		9FD51F722860D5A900D8B034 /* PokeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokeManager.swift; sourceTree = "<group>"; };
+		9FD51F752860D5DC00D8B034 /* Pokemon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pokemon.swift; sourceTree = "<group>"; };
+		9FD51F7C2860E02800D8B034 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
+		9FD51F7E2860E4D700D8B034 /* PokemonViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonViewModel.swift; sourceTree = "<group>"; };
+		9FD51F802860E5B100D8B034 /* PokemonPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonPickerView.swift; sourceTree = "<group>"; };
+		9FD51F822860E60E00D8B034 /* gengar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gengar.png; sourceTree = "<group>"; };
+		9FD51F842860E99D00D8B034 /* PokemonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		9F9E6B6F285B975E006D0A6D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		9F43D14328612438004162A4 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				9F43D14428612443004162A4 /* Settings.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		9F43D1462861260F004162A4 /* Game */ = {
+			isa = PBXGroup;
+			children = (
+				9F43D1472861261C004162A4 /* GameModel.swift */,
+			);
+			path = Game;
+			sourceTree = "<group>";
+		};
+		9F89356128611C2400F32CA5 /* Player */ = {
+			isa = PBXGroup;
+			children = (
+				9FD51F68285D398800D8B034 /* player.swift */,
+			);
+			path = Player;
+			sourceTree = "<group>";
+		};
+		9F9E6B69285B975E006D0A6D = {
+			isa = PBXGroup;
+			children = (
+				9F9E6B74285B975E006D0A6D /* Poke-TicTacToe */,
+				9F9E6B73285B975E006D0A6D /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		9F9E6B73285B975E006D0A6D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9F9E6B72285B975E006D0A6D /* Poke-TicTacToe.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9F9E6B74285B975E006D0A6D /* Poke-TicTacToe */ = {
+			isa = PBXGroup;
+			children = (
+				9F9E6B75285B975E006D0A6D /* Poke_TicTacToeApp.swift */,
+				9FD51F64285D389B00D8B034 /* Models */,
+				9FD51F65285D389F00D8B034 /* ViewModels */,
+				9FD51F66285D38A500D8B034 /* Views */,
+				9FD51F67285D38C600D8B034 /* Utills */,
+				9FD51F772860DE3E00D8B034 /* Data */,
+				9F9E6B79285B975F006D0A6D /* Assets.xcassets */,
+				9FD51F822860E60E00D8B034 /* gengar.png */,
+				9F9E6B7B285B975F006D0A6D /* Preview Content */,
+			);
+			path = "Poke-TicTacToe";
+			sourceTree = "<group>";
+		};
+		9F9E6B7B285B975F006D0A6D /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				9F9E6B7C285B975F006D0A6D /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		9FCA123D286A695C00677DAC /* Poke+Icon-PicerViews */ = {
+			isa = PBXGroup;
+			children = (
+				9F6778952867BD9F005ACB5F /* MainPickerView.swift */,
+				9FD51F802860E5B100D8B034 /* PokemonPickerView.swift */,
+				9FD51F842860E99D00D8B034 /* PokemonView.swift */,
+				9F6778972867BEBF005ACB5F /* IconPickerView.swift */,
+			);
+			path = "Poke+Icon-PicerViews";
+			sourceTree = "<group>";
+		};
+		9FCA123E286A698100677DAC /* GameViews */ = {
+			isa = PBXGroup;
+			children = (
+				9FD51F6E285D3BCF00D8B034 /* GameView.swift */,
+				9F9E6B84285B9786006D0A6D /* XOButton.swift */,
+			);
+			path = GameViews;
+			sourceTree = "<group>";
+		};
+		9FCA123F286A698C00677DAC /* SettingsViews */ = {
+			isa = PBXGroup;
+			children = (
+				9FCA1242286A74CE00677DAC /* MainSettingsView.swift */,
+				9FCA1244286A76B600677DAC /* SettingsView.swift */,
+				9FD51F70285D3BD600D8B034 /* ScoreBoardView.swift */,
+				9FCA1240286A710100677DAC /* GameScoreBoardCell.swift */,
+			);
+			path = SettingsViews;
+			sourceTree = "<group>";
+		};
+		9FD51F64285D389B00D8B034 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				9F67789D286918EA005ACB5F /* PTTTGameCoreData.xcdatamodeld */,
+				9F6778A428691B06005ACB5F /* GameScoreEntity+CoreDataClass.swift */,
+				9F6778A528691B06005ACB5F /* GameScoreEntity+CoreDataProperties.swift */,
+				9F43D1462861260F004162A4 /* Game */,
+				9F43D14328612438004162A4 /* Settings */,
+				9F89356128611C2400F32CA5 /* Player */,
+				9FD51F742860D5D000D8B034 /* Pokemon */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		9FD51F65285D389F00D8B034 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				9F6778AA2869297E005ACB5F /* DataClassViewModel.swift */,
+				9FD51F6A285D3BA000D8B034 /* GameScoreViewModel.swift */,
+				9FD51F6C285D3BA700D8B034 /* GameViewModel.swift */,
+				9FD51F7E2860E4D700D8B034 /* PokemonViewModel.swift */,
+				9F6778992867BF16005ACB5F /* IconViewModel.swift */,
+				9FD51F722860D5A900D8B034 /* PokeManager.swift */,
+				9FD51F7C2860E02800D8B034 /* Helper.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		9FD51F66285D38A500D8B034 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				9F9E6B77285B975E006D0A6D /* ContentView.swift */,
+				9FCA123E286A698100677DAC /* GameViews */,
+				9FCA123F286A698C00677DAC /* SettingsViews */,
+				9FCA123D286A695C00677DAC /* Poke+Icon-PicerViews */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		9FD51F67285D38C600D8B034 /* Utills */ = {
+			isa = PBXGroup;
+			children = (
+				9FD51F62285D387E00D8B034 /* DefaultButtonStyles.swift */,
+				9F67789B2867C4DA005ACB5F /* CustomToggleSwitch.swift */,
+				9F31EA882863BB0B00C889FB /* ShakeEffect.swift */,
+				9F394C0C28652196005309A4 /* Alerts.swift */,
+			);
+			path = Utills;
+			sourceTree = "<group>";
+		};
+		9FD51F742860D5D000D8B034 /* Pokemon */ = {
+			isa = PBXGroup;
+			children = (
+				9FD51F752860D5DC00D8B034 /* Pokemon.swift */,
+			);
+			path = Pokemon;
+			sourceTree = "<group>";
+		};
+		9FD51F772860DE3E00D8B034 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				9F43D1412861207C004162A4 /* pokemon.json */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		9F9E6B71285B975E006D0A6D /* Poke-TicTacToe */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9F9E6B80285B975F006D0A6D /* Build configuration list for PBXNativeTarget "Poke-TicTacToe" */;
+			buildPhases = (
+				9F9E6B6E285B975E006D0A6D /* Sources */,
+				9F9E6B6F285B975E006D0A6D /* Frameworks */,
+				9F9E6B70285B975E006D0A6D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Poke-TicTacToe";
+			productName = "Poke-TicTacToe";
+			productReference = 9F9E6B72285B975E006D0A6D /* Poke-TicTacToe.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		9F9E6B6A285B975E006D0A6D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1330;
+				LastUpgradeCheck = 1330;
+				TargetAttributes = {
+					9F9E6B71285B975E006D0A6D = {
+						CreatedOnToolsVersion = 13.3;
+					};
+				};
+			};
+			buildConfigurationList = 9F9E6B6D285B975E006D0A6D /* Build configuration list for PBXProject "Poke-TicTacToe" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 9F9E6B69285B975E006D0A6D;
+			productRefGroup = 9F9E6B73285B975E006D0A6D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				9F9E6B71285B975E006D0A6D /* Poke-TicTacToe */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		9F9E6B70285B975E006D0A6D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9FD51F832860E60E00D8B034 /* gengar.png in Resources */,
+				9F43D1422861207C004162A4 /* pokemon.json in Resources */,
+				9F9E6B7D285B975F006D0A6D /* Preview Assets.xcassets in Resources */,
+				9F9E6B7A285B975F006D0A6D /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		9F9E6B6E285B975E006D0A6D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9F9E6B86285B9786006D0A6D /* XOButton.swift in Sources */,
+				9FD51F7D2860E02800D8B034 /* Helper.swift in Sources */,
+				9F43D14528612443004162A4 /* Settings.swift in Sources */,
+				9F9E6B78285B975E006D0A6D /* ContentView.swift in Sources */,
+				9F67789A2867BF16005ACB5F /* IconViewModel.swift in Sources */,
+				9FCA1243286A74CE00677DAC /* MainSettingsView.swift in Sources */,
+				9FD51F812860E5B100D8B034 /* PokemonPickerView.swift in Sources */,
+				9FD51F63285D387E00D8B034 /* DefaultButtonStyles.swift in Sources */,
+				9F6778A628691B06005ACB5F /* GameScoreEntity+CoreDataClass.swift in Sources */,
+				9FD51F6D285D3BA700D8B034 /* GameViewModel.swift in Sources */,
+				9F6778962867BD9F005ACB5F /* MainPickerView.swift in Sources */,
+				9FD51F762860D5DC00D8B034 /* Pokemon.swift in Sources */,
+				9FD51F732860D5A900D8B034 /* PokeManager.swift in Sources */,
+				9F67789F286918EA005ACB5F /* PTTTGameCoreData.xcdatamodeld in Sources */,
+				9FD51F852860E99D00D8B034 /* PokemonView.swift in Sources */,
+				9FCA1245286A76B600677DAC /* SettingsView.swift in Sources */,
+				9F31EA892863BB0B00C889FB /* ShakeEffect.swift in Sources */,
+				9F67789C2867C4DA005ACB5F /* CustomToggleSwitch.swift in Sources */,
+				9F6778A728691B06005ACB5F /* GameScoreEntity+CoreDataProperties.swift in Sources */,
+				9F43D1482861261C004162A4 /* GameModel.swift in Sources */,
+				9FD51F71285D3BD600D8B034 /* ScoreBoardView.swift in Sources */,
+				9F6778982867BEBF005ACB5F /* IconPickerView.swift in Sources */,
+				9FD51F69285D398800D8B034 /* player.swift in Sources */,
+				9FCA1241286A710100677DAC /* GameScoreBoardCell.swift in Sources */,
+				9FD51F6F285D3BCF00D8B034 /* GameView.swift in Sources */,
+				9F6778AB2869297E005ACB5F /* DataClassViewModel.swift in Sources */,
+				9FD51F7F2860E4D700D8B034 /* PokemonViewModel.swift in Sources */,
+				9FD51F6B285D3BA000D8B034 /* GameScoreViewModel.swift in Sources */,
+				9F394C0D28652196005309A4 /* Alerts.swift in Sources */,
+				9F9E6B76285B975E006D0A6D /* Poke_TicTacToeApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		9F9E6B7E285B975F006D0A6D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		9F9E6B7F285B975F006D0A6D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		9F9E6B81285B975F006D0A6D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Poke-TicTacToe/Preview Content\"";
+				DEVELOPMENT_TEAM = J9T7CX8U3Q;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "DuckCode.Poke-TicTacToe";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		9F9E6B82285B975F006D0A6D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Poke-TicTacToe/Preview Content\"";
+				DEVELOPMENT_TEAM = J9T7CX8U3Q;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "DuckCode.Poke-TicTacToe";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		9F9E6B6D285B975E006D0A6D /* Build configuration list for PBXProject "Poke-TicTacToe" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9F9E6B7E285B975F006D0A6D /* Debug */,
+				9F9E6B7F285B975F006D0A6D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9F9E6B80285B975F006D0A6D /* Build configuration list for PBXNativeTarget "Poke-TicTacToe" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9F9E6B81285B975F006D0A6D /* Debug */,
+				9F9E6B82285B975F006D0A6D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		9F67789D286918EA005ACB5F /* PTTTGameCoreData.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				9F67789E286918EA005ACB5F /* Model.xcdatamodel */,
+			);
+			currentVersion = 9F67789E286918EA005ACB5F /* Model.xcdatamodel */;
+			path = PTTTGameCoreData.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 9F9E6B6A285B975E006D0A6D /* Project object */;
+}
