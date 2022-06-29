@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9F09149B286D06E900BDF450 /* BoardHistView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F09149A286D06E900BDF450 /* BoardHistView.swift */; };
+		9F09149D286D10DC00BDF450 /* MoveModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F09149C286D10DC00BDF450 /* MoveModel.swift */; };
 		9F31EA892863BB0B00C889FB /* ShakeEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F31EA882863BB0B00C889FB /* ShakeEffect.swift */; };
 		9F394C0D28652196005309A4 /* Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F394C0C28652196005309A4 /* Alerts.swift */; };
 		9F43D1422861207C004162A4 /* pokemon.json in Resources */ = {isa = PBXBuildFile; fileRef = 9F43D1412861207C004162A4 /* pokemon.json */; };
@@ -44,6 +46,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9F09149A286D06E900BDF450 /* BoardHistView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardHistView.swift; sourceTree = "<group>"; };
+		9F09149C286D10DC00BDF450 /* MoveModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoveModel.swift; sourceTree = "<group>"; };
 		9F31EA882863BB0B00C889FB /* ShakeEffect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShakeEffect.swift; sourceTree = "<group>"; };
 		9F394C0C28652196005309A4 /* Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alerts.swift; sourceTree = "<group>"; };
 		9F43D1412861207C004162A4 /* pokemon.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = pokemon.json; sourceTree = "<group>"; };
@@ -104,6 +108,7 @@
 			isa = PBXGroup;
 			children = (
 				9F43D1472861261C004162A4 /* GameModel.swift */,
+				9F09149C286D10DC00BDF450 /* MoveModel.swift */,
 			);
 			path = Game;
 			sourceTree = "<group>";
@@ -182,6 +187,7 @@
 				9FCA1242286A74CE00677DAC /* MainSettingsView.swift */,
 				9FCA1244286A76B600677DAC /* SettingsView.swift */,
 				9FD51F70285D3BD600D8B034 /* ScoreBoardView.swift */,
+				9F09149A286D06E900BDF450 /* BoardHistView.swift */,
 				9FCA1240286A710100677DAC /* GameScoreBoardCell.swift */,
 			);
 			path = SettingsViews;
@@ -325,6 +331,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9F09149B286D06E900BDF450 /* BoardHistView.swift in Sources */,
 				9F9E6B86285B9786006D0A6D /* XOButton.swift in Sources */,
 				9FD51F7D2860E02800D8B034 /* Helper.swift in Sources */,
 				9F43D14528612443004162A4 /* Settings.swift in Sources */,
@@ -342,6 +349,7 @@
 				9FD51F852860E99D00D8B034 /* PokemonView.swift in Sources */,
 				9FCA1245286A76B600677DAC /* SettingsView.swift in Sources */,
 				9F31EA892863BB0B00C889FB /* ShakeEffect.swift in Sources */,
+				9F09149D286D10DC00BDF450 /* MoveModel.swift in Sources */,
 				9F67789C2867C4DA005ACB5F /* CustomToggleSwitch.swift in Sources */,
 				9F6778A728691B06005ACB5F /* GameScoreEntity+CoreDataProperties.swift in Sources */,
 				9F43D1482861261C004162A4 /* GameModel.swift in Sources */,

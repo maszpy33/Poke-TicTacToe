@@ -30,6 +30,7 @@ struct MainSettingsView: View {
                         .environmentObject(gsvm)
                 } else {
                     ScoreBoardView()
+                        .environmentObject(gvm)
                         .environmentObject(gsvm)
                 }
                 

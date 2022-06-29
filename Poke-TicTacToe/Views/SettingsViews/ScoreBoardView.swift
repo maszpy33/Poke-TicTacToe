@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ScoreBoardView: View {
     
+    @EnvironmentObject var gvm: GameViewModel
     @EnvironmentObject var gsvm: GameScoreViewModel
     
     var body: some View {

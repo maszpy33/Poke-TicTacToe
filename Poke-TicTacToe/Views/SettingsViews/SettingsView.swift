@@ -21,7 +21,9 @@ struct SettingsView: View {
     @State private var themeColor: String = UserDefaults.standard.string(forKey: "ThemeColor") ?? "purple"
     
     // SAVE BUTTON VARIABLES
-    @State private var dragAmount = CGSize.zero
+    @State private var currentDragOffsetX = CGFloat.zero
+    @State private var currentDragOffsetY = CGFloat.zero
+    
     @State private var enabled = false
     @State private var scaleAmount: Double = 1.0
     
@@ -62,33 +64,69 @@ struct SettingsView: View {
                 HStack {
                     Spacer()
                     
-                    Button("Save") {
-                        // SAVE SETTINGS TO USERDEFAULTS
-                        UserDefaults.standard.set(self.playerOneName, forKey: "PlayerOneName")
-                        UserDefaults.standard.set(self.playerTwoName, forKey: "PlayerTwoName")
-                        UserDefaults.standard.set(self.rounds, forKey: "Rounds")
-                        UserDefaults.standard.set(self.themeColor, forKey: "ThemeColor")
-                        
-                        gvm.playerOneName = playerOneName
-                        gvm.playerTwoName = playerTwoName
-                        
-                        print("Save settings")
-                    }
-                    .buttonStyle(DefaultButton(buttonWidth: 70))
-//                    .offset(self.dragAmount)
-                    .padding(.bottom, 10)
-                    .padding(.trailing, 10)
-//                    .gesture(DragGesture()
-//                        .onChanged { self.dragAmount = $0.translation }
-//                        .onEnded { _ in
-//                            withAnimation(.easeOut.delay(0.5)) {
-//                                self.dragAmount = .zero
-//                                self.enabled.toggle()
-//                            }
-//                        })
+                    Text("Save")
+                        .frame(width: 70)
+                        .padding()
+                        .font(.system(size: 20, weight: .bold))
+                        .foregroundColor(.black)
+                        .background(LinearGradient(colors: [.blue, .purple], startPoint: .leading, endPoint: .trailing))
+                        .clipShape(RoundedRectangle(cornerRadius: 15))
+                        .padding(.bottom, 30)
+                        .scaleEffect(self.scaleAmount)
+                        .offset(x: currentDragOffsetX)
+//                        .offset(y: currentDragOffsetY)
+                        .padding()
+                        .onTapGesture {
+                            // ANIMATE BUTTON EFFECT WHILE MAINTING DRAG GESTURE
+                            DispatchQueue.main.async {
+                                withAnimation(.default) {
+                                    scaleAmount = 0.7
+                                }
+                                withAnimation(.default.delay(0.2)) {
+                                    scaleAmount = 1.0
+                                }
+                            }
+                            
+                            // SAVE SETTINGS TO USERDEFAULTS
+                            UserDefaults.standard.set(self.playerOneName, forKey: "PlayerOneName")
+                            UserDefaults.standard.set(self.playerTwoName, forKey: "PlayerTwoName")
+                            UserDefaults.standard.set(self.rounds, forKey: "Rounds")
+                            UserDefaults.standard.set(self.themeColor, forKey: "ThemeColor")
+                            
+                            gvm.playerOneName = playerOneName
+                            gvm.playerTwoName = playerTwoName
+                            
+                            print("Save settings")
+                        }
+                        .gesture(DragGesture()
+                            .onChanged { value in
+//                                self.offsetAmountX = $0.translation
+//                                self.offsetAmountY = $0.translation
+                                withAnimation(.spring()) {
+                                    currentDragOffsetX = value.translation.width
+//                                    currentDragOffsetY = value.translation.height
+                                }
+                            }
+                            .onEnded { _ in
+                                withAnimation(.spring()) {
+                                    if currentDragOffsetX < -260 {
+                                        currentDragOffsetX = -260
+                                    } else if currentDragOffsetX >= 0.0 {
+                                        currentDragOffsetX = 0.0
+                                    }
+//                                    currentDragOffsetY = .zero
+                                    self.enabled.toggle()
+                                }
+                            })
                 }
 
             }
+            
+//
+//            Text("\(currentDragOffsetX)")
+//                .font(.title)
+//                .foregroundColor(.white)
+//
             
         }
         .accentColor(gsvm.changeThemeColor(themeColor: themeColor))

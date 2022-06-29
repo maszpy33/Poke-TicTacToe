@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="20086" systemVersion="21F79" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="BoardHistEntity" representedClassName="BoardHistEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="move" optional="YES" attributeType="String"/>
+    </entity>
     <entity name="GameScoreEntity" representedClassName="GameScoreEntity" syncable="YES">
         <attribute name="gameDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="playerOneName" optional="YES" attributeType="String"/>
@@ -9,7 +12,10 @@
         <attribute name="rounds" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="themeColor" optional="YES" attributeType="String"/>
     </entity>
+    <entity name="GameSettingsEntity" representedClassName="GameSettingsEntity" syncable="YES" codeGenerationType="class"/>
     <elements>
         <element name="GameScoreEntity" positionX="-63" positionY="-18" width="128" height="134"/>
+        <element name="BoardHistEntity" positionX="-63" positionY="36" width="128" height="44"/>
+        <element name="GameSettingsEntity" positionX="-54" positionY="45" width="128" height="29"/>
     </elements>
 </model>
