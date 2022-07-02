@@ -26,98 +26,150 @@ struct GameView: View {
     
     @State var isOccupied: Bool = false
     
+    // ALERT VARIABLES
+//    @State private var showAlert = false
+//    @State private var errorTitle = ""
+//    @State private var errorMessage = ""
+    
+    
     var body: some View {
-        VStack {
-            Text(gvm.endGameText)
-                .font(.title)
-                .padding()
-                .alert(gvm.endGameText, isPresented: $gvm.gameEnded) {
-                    Button("Reset", role: .destructive, action: gvm.resetGame)
-                }
-            
-            HStack {
-                VStack {
-                    Text(gvm.playerOneName)
-                        .foregroundColor(gvm.botIsMoving ? .gray : .primary)
-                    gvm.playerOneImage
-                        .resizable()
-                        .scaledToFit()
-                        .foregroundColor(.red)
-                }
-                .padding(.horizontal, 20)
+        NavigationView {
+            VStack {
+//                Text(gvm.endGameText)
+//                    .font(.title)
+//                    .padding()
+//                    .alert(gvm.endGameText, isPresented: $gvm.gameEnded) {
+//                        Button("Reset", role: .destructive, action: gvm.resetGame)
+//                    }
                 
-                VStack {
-                    Text(gvm.playerTwoName)
-                        .foregroundColor(gvm.botIsMoving ? .primary : .gray)
-                    gvm.playerTwoImage
-                        .resizable()
-                        .scaledToFit()
-                        .foregroundColor(.blue)
-                }
-                .padding(.horizontal, 20)
-            }
-            .frame(height: 80)
-            
-            Text("Round \(gvm.roundCount) of \(gvm.rounds)")
-                .font(.system(size: 20, weight: .semibold))
-                .padding(5)
-            
-            Spacer()
-            
-            ForEach(gvm.ranges, id: \.self) { range in
                 HStack {
-                    ForEach(range, id: \.self) { i in
-                        XOButton(letter: $gvm.moves[i], isOccupied: $isOccupied)
-                            .environmentObject(gvm)
-                            .environmentObject(gsvm)
-                            .simultaneousGesture(
-                                TapGesture()
-                                    .onEnded { _ in
-                                        boardIndex = i
-                                        print("Tap: \(i)")
-                                        if !gvm.blockBoard {
-                                            gvm.playerTap(index: i)
+                    
+                    VStack {
+                        Text("Score")
+                        Text("\(gvm.playerOneWins)")
+//                        Text(gvm.gameEnded ? "gameEnded: True" : "gameEnded: False")
+                    }
+                    
+                    VStack {
+                        Text(gvm.playerOneName)
+                            .bold()
+                            .foregroundColor(gvm.botIsMoving ? .gray : .primary)
+                        gvm.playerOneImage
+                            .resizable()
+                            .scaledToFit()
+                            .foregroundColor(.red)
+                            .shadow(color: .red, radius: gvm.botIsMoving ? 0 : 10)
+                            .shadow(color: .red, radius: gvm.botIsMoving ? 0 : 10)
+                    }
+                    .padding(.horizontal, 20)
+                    
+                    VStack {
+                        Text(gvm.playerTwoName)
+                            .bold()
+                            .foregroundColor(gvm.botIsMoving ? .primary : .gray)
+                        gvm.playerTwoImage
+                            .resizable()
+                            .scaledToFit()
+                            .foregroundColor(.blue)
+                            .shadow(color: .blue, radius: gvm.botIsMoving ? 10 : 0)
+                            .shadow(color: .blue, radius: gvm.botIsMoving ? 10 : 0)
+                    }
+                    .padding(.horizontal, 20)
+                    
+                    VStack {
+                        Text("Score")
+                        Text("\(gvm.playerTwoWins)")
+                    }
+                }
+                .frame(height: 60)
+                
+                Text("Round \(gvm.roundCount) of \(gvm.rounds)")
+                    .font(.system(size: 20, weight: .semibold))
+                    .padding(5)
+                
+                Spacer()
+                
+                ForEach(gvm.ranges, id: \.self) { range in
+                    HStack {
+                        ForEach(range, id: \.self) { i in
+                            XOButton(letter: $gvm.moves[i], isOccupied: $isOccupied)
+                                .environmentObject(gvm)
+                                .environmentObject(gsvm)
+                                .simultaneousGesture(
+                                    TapGesture()
+                                        .onEnded { _ in
+                                            boardIndex = i
+                                            print("Tap: \(i)")
+                                            if !gvm.blockBoard {
+                                                gvm.playerTap(index: i)
+                                            }
                                         }
-                                    }
-                            )
+                                )
+                        }
+                    }
+                    .offset(x: gvm.resetGridOffset, y: 0.0)
+                    // ALERTS
+                    .alert(gvm.endGameText, isPresented: $gvm.gameEnded) {
+                        Button("Reset", role: .destructive, action: gvm.resetGame)
                     }
                 }
-                .offset(x: gvm.resetGridOffset, y: 0.0)
-            }
-            
-            Spacer()
-            
-            // SAVE AND RESET BUTTON
-            HStack {
-                Spacer()
-                
-                Button {
-                    gsvm.saveGameData(playerOneName: gvm.playerOneName, playerTwoName: gvm.playerTwoName, playerOneWins: gvm.playerOneWins, playerTwoWins: gvm.playerTwoWins, rounds: 1, gameData: Date(), themeColor: "purple")
-                    print("saved game")
-                    gvm.resetGame()
-                } label: {
-                    HStack {
-                        Image(systemName: "square.and.arrow.down.fill")
-                        Text("Save Score")
-                    }
-                }
-                .buttonStyle(DefaultButton(buttonWidth: 140, themeColorPrimary: gvm.changeThemeColor(themeColor: gvm.themeColorPrimary), themeColorSecondary: gvm.changeThemeColor(themeColor: gvm.themeColorSecondary)))
-                
-                Button {
-                    gvm.resetGame()
-                } label: {
-                    HStack {
-                        Image(systemName: "arrow.rectanglepath")
-                        Text("Reset")
-                    }
-                }
-                .buttonStyle(DefaultButton(buttonWidth: 140, themeColorPrimary: gvm.changeThemeColor(themeColor: gvm.themeColorPrimary), themeColorSecondary: gvm.changeThemeColor(themeColor: gvm.themeColorSecondary)))
                 
                 Spacer()
+                
+                // SAVE AND RESET BUTTON
+                HStack {
+                    Spacer()
+                    
+                    Button {
+                        gsvm.saveGameData(playerOneName: gvm.playerOneName, playerTwoName: gvm.playerTwoName, playerOneWins: gvm.playerOneWins, playerTwoWins: gvm.playerTwoWins, rounds: Int16(gvm.rounds), gameData: Date(), themeColor: gvm.themeColorPrimary)
+                        print("saved game")
+                        gvm.resetGame()
+                    } label: {
+                        HStack {
+                            Image(systemName: "square.and.arrow.down.fill")
+                            Text("Save Score")
+                        }
+                    }
+                    .disabled(gvm.disableSaveButton == true)
+                    .buttonStyle(DefaultButton(buttonWidth: 140, themeColorPrimary: gvm.changeThemeColor(themeColor: gvm.themeColorPrimary), themeColorSecondary: gvm.changeThemeColor(themeColor: gvm.themeColorSecondary)))
+                    .opacity(gvm.disableSaveButton ? 0.7 : 1.0)
+                    
+                    Button {
+                        gvm.resetGame()
+                    } label: {
+                        HStack {
+                            Image(systemName: "arrow.rectanglepath")
+                            Text("Reset")
+                        }
+                    }
+                    .buttonStyle(DefaultButton(buttonWidth: 140, themeColorPrimary: gvm.changeThemeColor(themeColor: gvm.themeColorPrimary), themeColorSecondary: gvm.changeThemeColor(themeColor: gvm.themeColorSecondary)))
+                    
+                    Spacer()
+                }
+                .padding(.horizontal, 10)
             }
-            .padding(.horizontal, 10)
+            .accentColor(gvm.changeThemeColor(themeColor: gvm.themeColorPrimary))
+            .navigationBarTitle("\(gvm.endGameText)")
+            .navigationBarItems(trailing:
+                                    Button("Reset Game") {
+                gvm.resetFullGame()
+            })
         }
-        .accentColor(gvm.changeThemeColor(themeColor: gvm.themeColorPrimary))
+//        .alert(isPresented: $gvm.showAlert) {
+//            Alert(
+//                title: Text(gvm.alertTitle)),
+//                message: Text(gvm.alertMessage),
+//        primaryButton: .default(Text("Continue")) {
+//            // do nothing just disable board
+//            print("continue")
+//        }, secondaryButton: .cancel() {
+//            gvm.resetGame()
+//        }
+//
+//        }
+//        .alert(isPresented: $gvm.showAlert) {
+//            Alert(title: Text(gvm.alertTitle), message: Text(gvm.alertMessage), dismissButton: .default(Text("OK")))
+//        }
     }
 }
 

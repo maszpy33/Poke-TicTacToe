@@ -25,6 +25,12 @@ final class GameViewModel: ObservableObject {
     @Published var playerTwoWins: Int16 = 0
     
     @Published var roundCount: Int16 = 0
+    @Published var disableSaveButton: Bool = true
+    
+    // ALERT VARIABLES
+    @Published var showAlert = false
+    @Published var alertTitle = ""
+    @Published var alertMessage = ""
     
     // USERDEFAULTS DATA
     @Published var playerOneName: String {
@@ -85,16 +91,31 @@ final class GameViewModel: ObservableObject {
         }
     }
     
+    func getPlayerName(letter: String) -> String {
+        switch letter {
+        case "X":
+            return playerOneName
+        case "O":
+            return playerTwoName
+        default:
+            return "Error404"
+        }
+    }
+    
     func resetGame() {
         blockBoard = true
         endGameText = "TicTacToe"
         botIsMoving = false
-        rounds = 0
+        gameEnded = false
         
-        // CHANGE WHEN PLAYER CAN SELECT MULTIPLE ROUNDS
-        playerOneWins = 0
-        playerTwoWins = 0
+        if rounds == roundCount {
+            roundCount = 0
+            // CHANGE WHEN PLAYER CAN SELECT MULTIPLE ROUNDS
+            playerOneWins = 0
+            playerTwoWins = 0
+        }
         
+        // animate grid refresh
         withAnimation(.easeOut(duration: 0.5)) {
             self.resetGridOffset -= 400
         }
@@ -108,6 +129,17 @@ final class GameViewModel: ObservableObject {
             self.blockBoard = false
         }
         
+        // disable save button again
+        disableSaveButton = true
+    }
+    
+    func resetFullGame() {
+        roundCount = 0
+        // CHANGE WHEN PLAYER CAN SELECT MULTIPLE ROUNDS
+        playerOneWins = 0
+        playerTwoWins = 0
+        
+        resetGame()
     }
     
     func playerTap(index: Int) {
@@ -115,15 +147,32 @@ final class GameViewModel: ObservableObject {
             print("bot is moving")
             return
         }
+        
+        guard !gameEnded else {
+            print("gameEnded: \(gameEnded)")
+            print("game ended please press reset or save")
+            return
+        }
+        
         botIsMoving = true
-        // set botIsMoving to true so player can not tap twice before bot moves
-//        botIsMoving = true
         
         if moves[index] == "" {
             moves[index] = "X"
             
-            DispatchQueue.main.asyncAfter(deadline: .now() + Double.random(in: 0.3 ..< 1.0)) {
-                self.botMove()
+            DispatchQueue.main.asyncAfter(deadline: .now() + Double.random(in: 0.3 ..< 1.0)) { [self] in
+                // check if player1 has already won the game so bot dose not have to move anymore
+                if !self.checkWinner(list: self.moves, letter: "X") {
+                    self.botMove()
+                } else {
+                    // player1 has won -> raise count by 1
+                    self.roundCount += 1
+                    
+                    // disableSaveButton also toggled to false here becaus of async
+                    if self.roundCount == self.rounds {
+                        self.disableSaveButton = false
+                    }
+                }
+                
                 // set it back to false so player1 can move
                 self.botIsMoving = false
             }
@@ -133,11 +182,26 @@ final class GameViewModel: ObservableObject {
             if checkWinner(list: moves, letter: letter) {
                 endGameText = "\(letter) has won!"
                 gameEnded = true
+                
                 if letter == "X" {
                     playerOneWins += 1
+                } else {
+                    // raise roundCount here, because bot move won't be executet anymore
+                    roundCount += 1
                 }
+                
+                alertTitle = "Yeah \(getPlayerName(letter: letter)) has won!"
+                alertMessage = "Congrats my friend!"
+                
+                showAlert = true
+                
                 break
             }
+        }
+        
+        // if last round is done enable save button
+        if rounds == roundCount {
+            disableSaveButton = false
         }
     }
     
@@ -168,6 +232,11 @@ final class GameViewModel: ObservableObject {
         
         // Logging
         print("AvaliableMoves: \(availableMoves)")
+        
+        // bot always makes the last move so if there is no empty field left raise roundCount by one
+        if moves.filter({ $0 == "" }).count == 0 {
+            roundCount += 1
+        }
         
         // Check if bot has won
         for letter in ["X", "O"] {

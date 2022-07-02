@@ -23,19 +23,20 @@ struct SettingsView: View {
     @State private var enabled = false
     @State private var scaleAmount: Double = 1.0
     
-
     
     var body: some View {
-        ZStack {
+//        ZStack {
             VStack {
                 Form {
+                    
                     Section(header: Text("Name:")) {
                         TextField("player1 name", text: $gvm.playerOneName)
                         TextField("player2 name", text: $gvm.playerTwoName)
                     }
+                    
                     Section(header: Text("Rounds Picker:")) {
                         Picker("", selection: $gvm.rounds) {
-                            ForEach(1..<10) {
+                            ForEach(1..<11, id: \.self) {
                                 Text("\($0) Rounds")
                             }
                         }
@@ -66,6 +67,10 @@ struct SettingsView: View {
                     .padding(10)
                 }
             }
+            .onAppear {
+                print("ROUNDS: \(gvm.rounds)")
+            }
+            .accentColor(gsvm.changeThemeColor(themeColor: gvm.themeColorPrimary))
             // Settings are automatically saved with Userdefaults
 //            // SAVE BUTTON
 //            VStack {
@@ -120,8 +125,7 @@ struct SettingsView: View {
 //                }
 //
 //            }
-        }
-        .accentColor(gsvm.changeThemeColor(themeColor: gvm.themeColorPrimary))
+//        }
     }
 }
 

@@ -49,14 +49,16 @@ struct XOButton: View {
         .simultaneousGesture(
             TapGesture()
                 .onEnded { _ in
-                    if letter == "X" {
-                        playerImage = gvm.playerOneImage
-                    } else if letter == "O" {
-                        playerImage = gvm.playerTwoImage
-                    }
-                    
-                    withAnimation(.easeIn(duration: 0.25)) {
-                        self.degrees -= 180
+                    if !gvm.gameEnded {
+                        if letter == "X" {
+                            playerImage = gvm.playerOneImage
+                        } else if letter == "O" {
+                            playerImage = gvm.playerTwoImage
+                        }
+                        
+                        withAnimation(.easeIn(duration: 0.25)) {
+                            self.degrees -= 180
+                        }
                     }
                 }
         )
