@@ -9,6 +9,8 @@ import SwiftUI
 
 struct CustomToggleSwitch: View {
     
+    @EnvironmentObject var gvm: GameViewModel
+    
     @Binding var pickerViewSwitch: Bool
     @State private var width: CGFloat = 140
     @State private var height: CGFloat = 40
@@ -16,19 +18,9 @@ struct CustomToggleSwitch: View {
     
     @State var leftButtonText: String
     @State var rightButtonText: String
-    @State var buttonColor: Color
     
     var body: some View {
         VStack {
-//            HStack {
-//                Image(systemName: pickerViewSwitch ? "paintbrush.fill" : "paintbrush")
-//                    .foregroundColor(.accentColor)
-//                Text("Switch Theme:")
-//                    .font(.title3)
-//                Spacer()
-//            }
-//            .padding(.horizontal, 15)
-            
             ZStack {
                 HStack {
                     if pickerViewSwitch {
@@ -40,7 +32,7 @@ struct CustomToggleSwitch: View {
                         .padding()
                         .frame(width: width, height: height)
 //                        .background(Color.accentColor.opacity(0.2))
-                        .background(buttonColor)
+                        .background(gvm.changeThemeColor(themeColor: gvm.themeColorPrimary))
                         .cornerRadius(10)
                         .background(
                             RoundedRectangle(cornerRadius: 10, style: .continuous)

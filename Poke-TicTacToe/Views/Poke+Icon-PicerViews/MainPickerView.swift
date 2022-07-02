@@ -32,7 +32,8 @@ struct MainPickerView: View {
             .frame(height: 50)
             .padding()
             
-            CustomToggleSwitch(pickerViewSwitch: $pickerViewSwitch, leftButtonText: "Pokemon", rightButtonText: "Icons", buttonColor: gvm.changeThemeColor(themeColor: "purple"))
+            CustomToggleSwitch(pickerViewSwitch: $pickerViewSwitch, leftButtonText: "Pokemon", rightButtonText: "Icons")
+                .environmentObject(gvm)
                 .padding(.horizontal, 20)
                 .offset(x: 5)
             

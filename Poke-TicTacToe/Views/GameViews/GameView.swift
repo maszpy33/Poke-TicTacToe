@@ -58,6 +58,10 @@ struct GameView: View {
             }
             .frame(height: 80)
             
+            Text("Round \(gvm.roundCount) of \(gvm.rounds)")
+                .font(.system(size: 20, weight: .semibold))
+                .padding(5)
+            
             Spacer()
             
             ForEach(gvm.ranges, id: \.self) { range in
@@ -65,6 +69,7 @@ struct GameView: View {
                     ForEach(range, id: \.self) { i in
                         XOButton(letter: $gvm.moves[i], isOccupied: $isOccupied)
                             .environmentObject(gvm)
+                            .environmentObject(gsvm)
                             .simultaneousGesture(
                                 TapGesture()
                                     .onEnded { _ in
@@ -96,7 +101,7 @@ struct GameView: View {
                         Text("Save Score")
                     }
                 }
-                .buttonStyle(DefaultButton(buttonWidth: 140))
+                .buttonStyle(DefaultButton(buttonWidth: 140, themeColorPrimary: gvm.changeThemeColor(themeColor: gvm.themeColorPrimary), themeColorSecondary: gvm.changeThemeColor(themeColor: gvm.themeColorSecondary)))
                 
                 Button {
                     gvm.resetGame()
@@ -106,19 +111,13 @@ struct GameView: View {
                         Text("Reset")
                     }
                 }
-                .buttonStyle(DefaultButton(buttonWidth: 140))
+                .buttonStyle(DefaultButton(buttonWidth: 140, themeColorPrimary: gvm.changeThemeColor(themeColor: gvm.themeColorPrimary), themeColorSecondary: gvm.changeThemeColor(themeColor: gvm.themeColorSecondary)))
                 
                 Spacer()
             }
             .padding(.horizontal, 10)
-
-            
-//            Button("Reset") {
-//                gvm.resetGame()
-//            }
-//            .buttonStyle(ResetButton())
-//            .padding(.bottom)
         }
+        .accentColor(gvm.changeThemeColor(themeColor: gvm.themeColorPrimary))
     }
 }
 

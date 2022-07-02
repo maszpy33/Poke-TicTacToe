@@ -11,27 +11,67 @@ import SwiftUI
 
 final class GameViewModel: ObservableObject {
     
+    // GAME LOGIC DATA
     @Published var moves: [String] = ["","","","","","","","",""]
     @Published var endGameText: String = "TicTacToe"
     @Published var gameEnded: Bool = false
     @Published var botIsMoving: Bool = false
     @Published var blockBoard: Bool = false
     
-    @Published var playerOneName: String = "Player1"
-    @Published var playerTwoName: String = "Player2"
-    
+    // SETTINGS DATA
     @Published var playerOneImage: Image = Image(systemName: "xmark")
     @Published var playerTwoImage: Image = Image(systemName: "circle")
     @Published var playerOneWins: Int16 = 0
     @Published var playerTwoWins: Int16 = 0
     
-    @Published var resetGridOffset: Double = 0.0
+    @Published var roundCount: Int16 = 0
     
-    @Published var playerOneColor: Color = .red
+    // USERDEFAULTS DATA
+    @Published var playerOneName: String {
+        didSet {
+            UserDefaults.standard.set(playerOneName, forKey: "PlayerOneName")
+        }
+    }
+    
+    @Published var playerTwoName: String {
+        didSet {
+            UserDefaults.standard.set(playerTwoName, forKey: "PlayerTwoName")
+        }
+    }
+    
+    @Published var rounds: Int {
+        didSet {
+            UserDefaults.standard.set(rounds, forKey: "GameRounds")
+        }
+    }
+    
+    @Published var themeColorPrimary: String {
+        didSet {
+            UserDefaults.standard.set(themeColorPrimary, forKey: "ThemeColorPrimary")
+        }
+    }
+    
+    @Published var themeColorSecondary: String {
+        didSet {
+            UserDefaults.standard.set(themeColorSecondary, forKey: "ThemeColorSecondary")
+        }
+    }
+    
+    @Published var resetGridOffset: Double = 0.0
+//    @Published var playerOneColor: Color = .red
     
     @Published var imageArr: [(String, Image)] = [("X", Image(systemName: "flame.circle")), ("O", Image(systemName: "snowflake.circle"))]
     
     let ranges = [(0..<3),(3..<6),(6..<9)]
+    
+    
+    init() {
+        self.playerOneName = UserDefaults.standard.object(forKey: "PlayerOneName") as? String ?? "Player1"
+        self.playerTwoName = UserDefaults.standard.object(forKey: "PlayerTwoName") as? String ?? "Player2"
+        self.rounds = UserDefaults.standard.object(forKey: "GameRounds") as? Int ?? 1
+        self.themeColorPrimary = UserDefaults.standard.object(forKey: "ThemeColorPrimary") as? String ?? "purple"
+        self.themeColorSecondary = UserDefaults.standard.object(forKey: "ThemeColorSecondary") as? String ?? "blue"
+    }
     
     
     func getPlayerImage(letter: String) -> Image {
@@ -49,6 +89,7 @@ final class GameViewModel: ObservableObject {
         blockBoard = true
         endGameText = "TicTacToe"
         botIsMoving = false
+        rounds = 0
         
         // CHANGE WHEN PLAYER CAN SELECT MULTIPLE ROUNDS
         playerOneWins = 0
@@ -94,8 +135,6 @@ final class GameViewModel: ObservableObject {
                 gameEnded = true
                 if letter == "X" {
                     playerOneWins += 1
-                } else {
-                    playerTwoWins += 1
                 }
                 break
             }
@@ -135,6 +174,10 @@ final class GameViewModel: ObservableObject {
             if checkWinner(list: moves, letter: letter) {
                 endGameText = "\(letter) has won!"
                 gameEnded = true
+                if letter == "O" {
+                    playerTwoWins += 1
+                }
+                
                 break
             }
         }

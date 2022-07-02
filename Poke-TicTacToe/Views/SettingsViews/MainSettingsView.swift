@@ -17,7 +17,8 @@ struct MainSettingsView: View {
     var body: some View {
         NavigationView {
             VStack {
-                CustomToggleSwitch(pickerViewSwitch: $pickerViewSwitch, leftButtonText: "Settings", rightButtonText: "ScoreBoard", buttonColor: gsvm.changeThemeColor(themeColor: "purple"))
+                CustomToggleSwitch(pickerViewSwitch: $pickerViewSwitch, leftButtonText: "Settings", rightButtonText: "ScoreBoard")
+                    .environmentObject(gvm)
                     .padding(.horizontal, 20)
                     .padding(.top, 10)
                     .offset(x: 5)

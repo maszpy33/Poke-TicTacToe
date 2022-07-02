@@ -19,7 +19,7 @@ struct ScoreBoardView: View {
                 .foregroundColor(.primary)
             
             ForEach(gsvm.searchGames, id: \.self) { gameData in
-                GameScoreBoardCell(gameData: gameData)
+                GameScoreBoardCell(gameData: gameData, themeColorPrimary: gvm.changeThemeColor(themeColor: gvm.themeColorPrimary))
                     .swipeActions(edge: .trailing) {
                         Button(role: .destructive) {
                             withAnimation(.linear(duration: 0.4)) {

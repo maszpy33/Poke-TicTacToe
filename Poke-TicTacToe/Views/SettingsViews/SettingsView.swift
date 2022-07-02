@@ -13,12 +13,8 @@ struct SettingsView: View {
     @EnvironmentObject var gsvm: GameScoreViewModel
     
     // GAME SETTINGS
-    @State private var playerOneName: String = UserDefaults.standard.string(forKey: "PlayerOneName") ?? "Player1"
-    @State private var playerTwoName: String = UserDefaults.standard.string(forKey: "PlayerTwoName") ?? "Player2"
     @State private var playerOneWins: Int16 = 0
     @State private var playerTwoWins: Int16 = 0
-    @State private var rounds: Int = UserDefaults.standard.integer(forKey: "Rounds")
-    @State private var themeColor: String = UserDefaults.standard.string(forKey: "ThemeColor") ?? "purple"
     
     // SAVE BUTTON VARIABLES
     @State private var currentDragOffsetX = CGFloat.zero
@@ -34,11 +30,11 @@ struct SettingsView: View {
             VStack {
                 Form {
                     Section(header: Text("Name:")) {
-                        TextField("player1 name", text: $playerOneName)
-                        TextField("player2 name", text: $playerTwoName)
+                        TextField("player1 name", text: $gvm.playerOneName)
+                        TextField("player2 name", text: $gvm.playerTwoName)
                     }
                     Section(header: Text("Rounds Picker:")) {
-                        Picker("", selection: $rounds) {
+                        Picker("", selection: $gvm.rounds) {
                             ForEach(1..<10) {
                                 Text("\($0) Rounds")
                             }
@@ -48,88 +44,84 @@ struct SettingsView: View {
                     }
                     
                     Section("Theme Color Picker:") {
-                        Picker("", selection: $themeColor) {
+                        
+                        Text("Primary:")
+                            .font(.subheadline)
+                        Picker("", selection: $gvm.themeColorPrimary) {
+                            ForEach(gsvm.colors, id: \.self) {
+                                Text($0.capitalized)
+                            }
+                        }
+                        .pickerStyle(SegmentedPickerStyle())
+                        
+                        Text("Secondary:")
+                            .font(.subheadline)
+                        Picker("", selection: $gvm.themeColorSecondary) {
                             ForEach(gsvm.colors, id: \.self) {
                                 Text($0.capitalized)
                             }
                         }
                         .pickerStyle(SegmentedPickerStyle())
                     }
+                    .padding(10)
                 }
             }
-            
-            VStack {
-                Spacer()
-                
-                HStack {
-                    Spacer()
-                    
-                    Text("Save")
-                        .frame(width: 70)
-                        .padding()
-                        .font(.system(size: 20, weight: .bold))
-                        .foregroundColor(.black)
-                        .background(LinearGradient(colors: [.blue, .purple], startPoint: .leading, endPoint: .trailing))
-                        .clipShape(RoundedRectangle(cornerRadius: 15))
-                        .padding(.bottom, 30)
-                        .scaleEffect(self.scaleAmount)
-                        .offset(x: currentDragOffsetX)
-//                        .offset(y: currentDragOffsetY)
-                        .padding()
-                        .onTapGesture {
-                            // ANIMATE BUTTON EFFECT WHILE MAINTING DRAG GESTURE
-                            DispatchQueue.main.async {
-                                withAnimation(.default) {
-                                    scaleAmount = 0.7
-                                }
-                                withAnimation(.default.delay(0.2)) {
-                                    scaleAmount = 1.0
-                                }
-                            }
-                            
-                            // SAVE SETTINGS TO USERDEFAULTS
-                            UserDefaults.standard.set(self.playerOneName, forKey: "PlayerOneName")
-                            UserDefaults.standard.set(self.playerTwoName, forKey: "PlayerTwoName")
-                            UserDefaults.standard.set(self.rounds, forKey: "Rounds")
-                            UserDefaults.standard.set(self.themeColor, forKey: "ThemeColor")
-                            
-                            gvm.playerOneName = playerOneName
-                            gvm.playerTwoName = playerTwoName
-                            
-                            print("Save settings")
-                        }
-                        .gesture(DragGesture()
-                            .onChanged { value in
-//                                self.offsetAmountX = $0.translation
-//                                self.offsetAmountY = $0.translation
-                                withAnimation(.spring()) {
-                                    currentDragOffsetX = value.translation.width
-//                                    currentDragOffsetY = value.translation.height
-                                }
-                            }
-                            .onEnded { _ in
-                                withAnimation(.spring()) {
-                                    if currentDragOffsetX < -260 {
-                                        currentDragOffsetX = -260
-                                    } else if currentDragOffsetX >= 0.0 {
-                                        currentDragOffsetX = 0.0
-                                    }
-//                                    currentDragOffsetY = .zero
-                                    self.enabled.toggle()
-                                }
-                            })
-                }
-
-            }
-            
+            // Settings are automatically saved with Userdefaults
+//            // SAVE BUTTON
+//            VStack {
+//                Spacer()
 //
-//            Text("\(currentDragOffsetX)")
-//                .font(.title)
-//                .foregroundColor(.white)
+//                HStack {
+//                    Spacer()
 //
-            
+//                    Text("Save")
+//                        .frame(width: 70)
+//                        .padding()
+//                        .font(.system(size: 20, weight: .bold))
+//                        .foregroundColor(.black)
+//                        .background(LinearGradient(colors: [.blue, .purple], startPoint: .leading, endPoint: .trailing))
+//                        .clipShape(RoundedRectangle(cornerRadius: 15))
+//                        .padding(.bottom, 30)
+//                        .scaleEffect(self.scaleAmount)
+//                        .offset(x: currentDragOffsetX)
+////                        .offset(y: currentDragOffsetY)
+//                        .padding()
+//                        .onTapGesture {
+//                            // ANIMATE BUTTON EFFECT WHILE MAINTING DRAG GESTURE
+//                            DispatchQueue.main.async {
+//                                withAnimation(.default) {
+//                                    scaleAmount = 0.7
+//                                }
+//                                withAnimation(.default.delay(0.2)) {
+//                                    scaleAmount = 1.0
+//                                }
+//                            }
+//                        }
+//                        .gesture(DragGesture()
+//                            .onChanged { value in
+////                                self.offsetAmountX = $0.translation
+////                                self.offsetAmountY = $0.translation
+//                                withAnimation(.spring()) {
+//                                    currentDragOffsetX = value.translation.width
+////                                    currentDragOffsetY = value.translation.height
+//                                }
+//                            }
+//                            .onEnded { _ in
+//                                withAnimation(.spring()) {
+//                                    if currentDragOffsetX < -260 {
+//                                        currentDragOffsetX = -260
+//                                    } else if currentDragOffsetX >= 0.0 {
+//                                        currentDragOffsetX = 0.0
+//                                    }
+////                                    currentDragOffsetY = .zero
+//                                    self.enabled.toggle()
+//                                }
+//                            })
+//                }
+//
+//            }
         }
-        .accentColor(gsvm.changeThemeColor(themeColor: themeColor))
+        .accentColor(gsvm.changeThemeColor(themeColor: gvm.themeColorPrimary))
     }
 }
 

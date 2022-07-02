@@ -12,7 +12,6 @@
 		9F31EA892863BB0B00C889FB /* ShakeEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F31EA882863BB0B00C889FB /* ShakeEffect.swift */; };
 		9F394C0D28652196005309A4 /* Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F394C0C28652196005309A4 /* Alerts.swift */; };
 		9F43D1422861207C004162A4 /* pokemon.json in Resources */ = {isa = PBXBuildFile; fileRef = 9F43D1412861207C004162A4 /* pokemon.json */; };
-		9F43D14528612443004162A4 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F43D14428612443004162A4 /* Settings.swift */; };
 		9F43D1482861261C004162A4 /* GameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F43D1472861261C004162A4 /* GameModel.swift */; };
 		9F6778962867BD9F005ACB5F /* MainPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F6778952867BD9F005ACB5F /* MainPickerView.swift */; };
 		9F6778982867BEBF005ACB5F /* IconPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F6778972867BEBF005ACB5F /* IconPickerView.swift */; };
@@ -51,7 +50,6 @@
 		9F31EA882863BB0B00C889FB /* ShakeEffect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShakeEffect.swift; sourceTree = "<group>"; };
 		9F394C0C28652196005309A4 /* Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alerts.swift; sourceTree = "<group>"; };
 		9F43D1412861207C004162A4 /* pokemon.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = pokemon.json; sourceTree = "<group>"; };
-		9F43D14428612443004162A4 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		9F43D1472861261C004162A4 /* GameModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameModel.swift; sourceTree = "<group>"; };
 		9F6778952867BD9F005ACB5F /* MainPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPickerView.swift; sourceTree = "<group>"; };
 		9F6778972867BEBF005ACB5F /* IconPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconPickerView.swift; sourceTree = "<group>"; };
@@ -96,14 +94,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		9F43D14328612438004162A4 /* Settings */ = {
-			isa = PBXGroup;
-			children = (
-				9F43D14428612443004162A4 /* Settings.swift */,
-			);
-			path = Settings;
-			sourceTree = "<group>";
-		};
 		9F43D1462861260F004162A4 /* Game */ = {
 			isa = PBXGroup;
 			children = (
@@ -187,8 +177,8 @@
 				9FCA1242286A74CE00677DAC /* MainSettingsView.swift */,
 				9FCA1244286A76B600677DAC /* SettingsView.swift */,
 				9FD51F70285D3BD600D8B034 /* ScoreBoardView.swift */,
-				9F09149A286D06E900BDF450 /* BoardHistView.swift */,
 				9FCA1240286A710100677DAC /* GameScoreBoardCell.swift */,
+				9F09149A286D06E900BDF450 /* BoardHistView.swift */,
 			);
 			path = SettingsViews;
 			sourceTree = "<group>";
@@ -200,7 +190,6 @@
 				9F6778A428691B06005ACB5F /* GameScoreEntity+CoreDataClass.swift */,
 				9F6778A528691B06005ACB5F /* GameScoreEntity+CoreDataProperties.swift */,
 				9F43D1462861260F004162A4 /* Game */,
-				9F43D14328612438004162A4 /* Settings */,
 				9F89356128611C2400F32CA5 /* Player */,
 				9FD51F742860D5D000D8B034 /* Pokemon */,
 			);
@@ -334,7 +323,6 @@
 				9F09149B286D06E900BDF450 /* BoardHistView.swift in Sources */,
 				9F9E6B86285B9786006D0A6D /* XOButton.swift in Sources */,
 				9FD51F7D2860E02800D8B034 /* Helper.swift in Sources */,
-				9F43D14528612443004162A4 /* Settings.swift in Sources */,
 				9F9E6B78285B975E006D0A6D /* ContentView.swift in Sources */,
 				9F67789A2867BF16005ACB5F /* IconViewModel.swift in Sources */,
 				9FCA1243286A74CE00677DAC /* MainSettingsView.swift in Sources */,

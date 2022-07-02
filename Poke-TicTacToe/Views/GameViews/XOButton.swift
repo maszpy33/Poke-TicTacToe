@@ -10,6 +10,7 @@ import SwiftUI
 
 struct XOButton: View {
     @EnvironmentObject var gvm: GameViewModel
+    @EnvironmentObject var gsvm: GameScoreViewModel
     
     @Binding var letter: String
     @State private var degrees = 0.0
@@ -26,7 +27,7 @@ struct XOButton: View {
 //                    .frame(width: 120, height: 120))
             RoundedRectangle(cornerRadius: 15)
                 .frame(width: 120, height: 120)
-                .foregroundColor(.purple)
+                .foregroundColor(.accentColor)
 //                .foregroundColor(Color(red: 0.30, green: 0.8, blue: 0.56))
             
             RoundedRectangle(cornerRadius: 15)
@@ -65,6 +66,7 @@ struct XOButton: View {
                 isOccupied = false
             }
         }
+        .accentColor(gsvm.changeThemeColor(themeColor: gvm.themeColorPrimary))
     }
 }
 

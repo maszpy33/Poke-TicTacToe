@@ -11,6 +11,7 @@ struct GameScoreBoardCell: View {
     
     var gameData: GameScoreEntity
     var movesHistPlaceholder: [String] = ["X","O","O","X","O","","","","X"]
+    var themeColorPrimary: Color
     
     @State private var showBoardHistView: Bool = false
     
@@ -47,7 +48,7 @@ struct GameScoreBoardCell: View {
                             .background(
                                 RoundedRectangle(cornerRadius: 5, style: .continuous)
                                     .stroke(Color.accentColor, lineWidth: 2))
-                            .foregroundColor(.purple)
+                            .foregroundColor(.accentColor)
                         
                     }
                 }
@@ -61,12 +62,12 @@ struct GameScoreBoardCell: View {
         .sheet(isPresented: $showBoardHistView) {
             BoardHistView(gameData: gameData, movesHist: movesHistPlaceholder)
         }
-        .accentColor(Color.purple)
+        .accentColor(themeColorPrimary)
     }
 }
 
 struct GameScoreBoardCell_Previews: PreviewProvider {
     static var previews: some View {
-        GameScoreBoardCell(gameData: GameScoreEntity())
+        GameScoreBoardCell(gameData: GameScoreEntity(), themeColorPrimary: Color.purple)
     }
 }

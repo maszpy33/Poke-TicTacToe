@@ -9,8 +9,8 @@ import Foundation
 import UIKit
 
 
-struct Player: Identifiable, Equatable {
-    var id: String = UUID().uuidString
-    var playerName: String
-    var playerImage: UIImage
-}
+//struct Player: Identifiable, Equatable {
+//    var id: String = UUID().uuidString
+//    var playerName: String
+//    var playerImage: UIImage
+//}
