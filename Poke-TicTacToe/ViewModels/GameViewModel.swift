@@ -80,27 +80,9 @@ final class GameViewModel: ObservableObject {
     }
     
     
-    func getPlayerImage(letter: String) -> Image {
-        switch letter {
-        case "X":
-            return playerOneImage
-        case "O":
-            return playerTwoImage
-        default:
-            return Image(systemName: "questionmark")
-        }
-    }
-    
-    func getPlayerName(letter: String) -> String {
-        switch letter {
-        case "X":
-            return playerOneName
-        case "O":
-            return playerTwoName
-        default:
-            return "Error404"
-        }
-    }
+    // ****************************
+    // ******** GAME LOGIC ********
+    // ****************************
     
     func resetGame() {
         blockBoard = true
@@ -157,6 +139,7 @@ final class GameViewModel: ObservableObject {
         botIsMoving = true
         
         if moves[index] == "" {
+            // occupie empty field
             moves[index] = "X"
             
             DispatchQueue.main.asyncAfter(deadline: .now() + Double.random(in: 0.3 ..< 1.0)) { [self] in
@@ -168,9 +151,7 @@ final class GameViewModel: ObservableObject {
                     self.roundCount += 1
                     
                     // disableSaveButton also toggled to false here becaus of async
-                    if self.roundCount == self.rounds {
-                        self.disableSaveButton = false
-                    }
+                    self.checkIfGameEnde()
                 }
                 
                 // set it back to false so player1 can move
@@ -190,10 +171,7 @@ final class GameViewModel: ObservableObject {
                     roundCount += 1
                 }
                 
-                alertTitle = "Yeah \(getPlayerName(letter: letter)) has won!"
-                alertMessage = "Congrats my friend!"
-                
-                showAlert = true
+                alertHelper(letter: letter)
                 
                 break
             }
@@ -203,14 +181,6 @@ final class GameViewModel: ObservableObject {
         if rounds == roundCount {
             disableSaveButton = false
         }
-    }
-    
-    func isFieldOccupied(index: Int) -> Bool {
-        guard self.moves[index] != "" else {
-            return false
-        }
-        
-        return true
     }
     
     func botMove() {
@@ -245,7 +215,11 @@ final class GameViewModel: ObservableObject {
                 gameEnded = true
                 if letter == "O" {
                     playerTwoWins += 1
+                    roundCount += 1
                 }
+                
+                alertHelper(letter: letter)
+                checkIfGameEnde()
                 
                 break
             }
@@ -272,12 +246,82 @@ final class GameViewModel: ObservableObject {
                     
                     if score == 3 {
                         print("\(letter) has won!")
+                        
                         return true
                     }
                 }
             }
         }
         return false
+    }
+    
+    
+    // ****************************
+    // ***** HELPER FUNCTIONS *****
+    // ****************************
+    
+    func alertHelper(letter: String) {
+        let playerHasWoneName = getPlayerNameAndWins(letter: letter)
+        
+        guard rounds == roundCount else {
+            print("End of one game")
+            alertTitle = "🥳 Yeah \(playerHasWoneName.0) has won!"
+            alertMessage = "Congrats my friend, that was your \(playerHasWoneName.1) win!"
+            showAlert = true
+            return
+        }
+        
+        if playerOneWins != playerTwoWins {
+            print("End of Game")
+            alertTitle = "🥳 \(playerHasWoneName.0) has won the Game of TTT"
+            alertMessage = "🏆 \(playerHasWoneName.0) won \(playerHasWoneName.1) games out of \(rounds)"
+        } else {
+            print("End of Game it is a draw")
+            alertTitle = "🙅🏻‍♂️ it's a draw"
+            alertMessage = "\(playerOneName) wins: \(playerOneWins)\n\(playerTwoName) wins: \(playerTwoWins)"
+        }
+        
+        showAlert = true
+    }
+    
+    func getPlayerImage(letter: String) -> Image {
+        switch letter {
+        case "X":
+            return playerOneImage
+        case "O":
+            return playerTwoImage
+        default:
+            return Image(systemName: "questionmark")
+        }
+    }
+    
+    func getPlayerNameAndWins(letter: String) -> (String, Int16) {
+        switch letter {
+        case "X":
+            return (playerOneName, playerOneWins)
+        case "O":
+            return (playerTwoName, playerTwoWins)
+        default:
+            return ("Error", 404)
+        }
+    }
+    
+    func checkIfGameEnde() {
+        guard rounds != roundCount else {
+            // enable save button if game has ended
+            disableSaveButton = false
+            return
+        }
+        disableSaveButton = true
+    }
+    
+    // check board array if field is already occupied
+    func isFieldOccupied(index: Int) -> Bool {
+        guard self.moves[index] != "" else {
+            return false
+        }
+        
+        return true
     }
     
     func changeThemeColor(themeColor: String) -> Color {

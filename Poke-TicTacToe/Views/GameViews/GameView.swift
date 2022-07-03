@@ -26,28 +26,16 @@ struct GameView: View {
     
     @State var isOccupied: Bool = false
     
-    // ALERT VARIABLES
-//    @State private var showAlert = false
-//    @State private var errorTitle = ""
-//    @State private var errorMessage = ""
-    
     
     var body: some View {
         NavigationView {
             VStack {
-//                Text(gvm.endGameText)
-//                    .font(.title)
-//                    .padding()
-//                    .alert(gvm.endGameText, isPresented: $gvm.gameEnded) {
-//                        Button("Reset", role: .destructive, action: gvm.resetGame)
-//                    }
-                
                 HStack {
                     
                     VStack {
                         Text("Score")
                         Text("\(gvm.playerOneWins)")
-//                        Text(gvm.gameEnded ? "gameEnded: True" : "gameEnded: False")
+                        //                        Text(gvm.gameEnded ? "gameEnded: True" : "gameEnded: False")
                     }
                     
                     VStack {
@@ -109,9 +97,11 @@ struct GameView: View {
                     }
                     .offset(x: gvm.resetGridOffset, y: 0.0)
                     // ALERTS
-                    .alert(gvm.endGameText, isPresented: $gvm.gameEnded) {
-                        Button("Reset", role: .destructive, action: gvm.resetGame)
-                    }
+                    //                    .alert(gvm.endGameText, isPresented: $gvm.gameEnded) {
+                    //                        Alert(
+                    //                        title: Text("Continue"),
+                    //                        message: )
+                    //                    }
                 }
                 
                 Spacer()
@@ -148,28 +138,37 @@ struct GameView: View {
                 }
                 .padding(.horizontal, 10)
             }
-            .accentColor(gvm.changeThemeColor(themeColor: gvm.themeColorPrimary))
             .navigationBarTitle("\(gvm.endGameText)")
-            .navigationBarItems(trailing:
-                                    Button("Reset Game") {
-                gvm.resetFullGame()
-            })
+            .navigationBarItems(leading: NavigationLink(destination:
+                                                            ScoreBoardView()
+                .environmentObject(gvm)
+                .environmentObject(gsvm)) {
+                    HStack {
+                        Image(systemName: "list.number")
+                        Text("Score Board")
+                    }
+                }
+                                , trailing:
+                                    Button(action: gvm.resetFullGame) {
+                HStack {
+                    Image(systemName: "hurricane")
+                    Text("Reset Full Game")
+                }
+            }
+            )
         }
-//        .alert(isPresented: $gvm.showAlert) {
-//            Alert(
-//                title: Text(gvm.alertTitle)),
-//                message: Text(gvm.alertMessage),
-//        primaryButton: .default(Text("Continue")) {
-//            // do nothing just disable board
-//            print("continue")
-//        }, secondaryButton: .cancel() {
-//            gvm.resetGame()
-//        }
-//
-//        }
-//        .alert(isPresented: $gvm.showAlert) {
-//            Alert(title: Text(gvm.alertTitle), message: Text(gvm.alertMessage), dismissButton: .default(Text("OK")))
-//        }
+        .accentColor(gvm.changeThemeColor(themeColor: gvm.themeColorPrimary))
+        .alert(isPresented: $gvm.showAlert) {
+            Alert(
+                title: Text(gvm.alertTitle),
+                message: Text(gvm.alertMessage),
+                primaryButton: .cancel(Text("View Board")) {
+                }, secondaryButton: .default(Text("Reset Board"), action: gvm.resetGame)
+            )
+        }
+        //        .alert(isPresented: $gvm.showAlert) {
+        //            Alert(title: Text(gvm.alertTitle), message: Text(gvm.alertMessage), dismissButton: .default(Text("OK")))
+        //        }
     }
 }
 

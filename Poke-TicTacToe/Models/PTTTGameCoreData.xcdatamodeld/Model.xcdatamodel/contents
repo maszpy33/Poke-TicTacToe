@@ -1,7 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="20086" systemVersion="21F79" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="BoardHistEntity" representedClassName="BoardHistEntity" syncable="YES" codeGenerationType="class">
-        <attribute name="move" optional="YES" attributeType="String"/>
+        <attribute name="fieldAight" optional="YES" attributeType="String"/>
+        <attribute name="fieldFive" optional="YES" attributeType="String"/>
+        <attribute name="fieldFour" optional="YES" attributeType="String"/>
+        <attribute name="fieldNine" optional="YES" attributeType="String"/>
+        <attribute name="fieldOne" optional="YES" attributeType="String"/>
+        <attribute name="fieldSeven" optional="YES" attributeType="String"/>
+        <attribute name="fieldSix" optional="YES" attributeType="String"/>
+        <attribute name="fieldThree" optional="YES" attributeType="String"/>
+        <attribute name="fieldTwo" optional="YES" attributeType="String"/>
     </entity>
     <entity name="GameScoreEntity" representedClassName="GameScoreEntity" syncable="YES">
         <attribute name="gameDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
@@ -14,8 +22,8 @@
     </entity>
     <entity name="GameSettingsEntity" representedClassName="GameSettingsEntity" syncable="YES" codeGenerationType="class"/>
     <elements>
+        <element name="BoardHistEntity" positionX="-63" positionY="36" width="128" height="164"/>
         <element name="GameScoreEntity" positionX="-63" positionY="-18" width="128" height="134"/>
-        <element name="BoardHistEntity" positionX="-63" positionY="36" width="128" height="44"/>
         <element name="GameSettingsEntity" positionX="-54" positionY="45" width="128" height="29"/>
     </elements>
 </model>
