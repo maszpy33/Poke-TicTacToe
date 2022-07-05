@@ -23,10 +23,6 @@ struct PokemonPickerView: View {
                         ForEach(pvm.filteredPokemon) { pokemon in
                             PokemonView(pokemon: pokemon)
                                 .environmentObject(gvm)
-
-                            //                            NavigationLink(destination: PokemonDetailView(pokemon: pokemon)) {
-                            //                                PokemonView(pokemon: pokemon)
-                            //                            }
                         }
                     }
                     .animation(.easeIn(duration: 0.3), value: pvm.filteredPokemon.count)

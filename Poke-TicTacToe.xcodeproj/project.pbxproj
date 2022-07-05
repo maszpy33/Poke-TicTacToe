@@ -15,7 +15,6 @@
 		9F43D1482861261C004162A4 /* GameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F43D1472861261C004162A4 /* GameModel.swift */; };
 		9F6778962867BD9F005ACB5F /* MainPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F6778952867BD9F005ACB5F /* MainPickerView.swift */; };
 		9F6778982867BEBF005ACB5F /* IconPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F6778972867BEBF005ACB5F /* IconPickerView.swift */; };
-		9F67789A2867BF16005ACB5F /* IconViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F6778992867BF16005ACB5F /* IconViewModel.swift */; };
 		9F67789C2867C4DA005ACB5F /* CustomToggleSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F67789B2867C4DA005ACB5F /* CustomToggleSwitch.swift */; };
 		9F67789F286918EA005ACB5F /* PTTTGameCoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9F67789D286918EA005ACB5F /* PTTTGameCoreData.xcdatamodeld */; };
 		9F6778A628691B06005ACB5F /* GameScoreEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F6778A428691B06005ACB5F /* GameScoreEntity+CoreDataClass.swift */; };
@@ -53,7 +52,6 @@
 		9F43D1472861261C004162A4 /* GameModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameModel.swift; sourceTree = "<group>"; };
 		9F6778952867BD9F005ACB5F /* MainPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPickerView.swift; sourceTree = "<group>"; };
 		9F6778972867BEBF005ACB5F /* IconPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconPickerView.swift; sourceTree = "<group>"; };
-		9F6778992867BF16005ACB5F /* IconViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconViewModel.swift; sourceTree = "<group>"; };
 		9F67789B2867C4DA005ACB5F /* CustomToggleSwitch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomToggleSwitch.swift; sourceTree = "<group>"; };
 		9F67789E286918EA005ACB5F /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		9F6778A428691B06005ACB5F /* GameScoreEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GameScoreEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -203,7 +201,6 @@
 				9FD51F6A285D3BA000D8B034 /* GameScoreViewModel.swift */,
 				9FD51F6C285D3BA700D8B034 /* GameViewModel.swift */,
 				9FD51F7E2860E4D700D8B034 /* PokemonViewModel.swift */,
-				9F6778992867BF16005ACB5F /* IconViewModel.swift */,
 				9FD51F722860D5A900D8B034 /* PokeManager.swift */,
 				9FD51F7C2860E02800D8B034 /* Helper.swift */,
 			);
@@ -324,7 +321,6 @@
 				9F9E6B86285B9786006D0A6D /* XOButton.swift in Sources */,
 				9FD51F7D2860E02800D8B034 /* Helper.swift in Sources */,
 				9F9E6B78285B975E006D0A6D /* ContentView.swift in Sources */,
-				9F67789A2867BF16005ACB5F /* IconViewModel.swift in Sources */,
 				9FCA1243286A74CE00677DAC /* MainSettingsView.swift in Sources */,
 				9FD51F812860E5B100D8B034 /* PokemonPickerView.swift in Sources */,
 				9FD51F63285D387E00D8B034 /* DefaultButtonStyles.swift in Sources */,

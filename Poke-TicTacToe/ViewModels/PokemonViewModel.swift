@@ -6,9 +6,10 @@
 //
 
 import Foundation
+import SwiftUI
 
 
-final class PokemonViewModel: ObservableObject {
+final class PokemonViewModel: GameViewModel {
     // pokemonManager for networking stuff
     private let pokemonManager = PokeManager()
     
@@ -24,10 +25,12 @@ final class PokemonViewModel: ObservableObject {
         }
     }
     
-    init() {
+    override init() {
+        super.init()
+        
         self.pokemonList = pokemonManager.getPokemon()
         self.iconList = iconList
-//        print(self.pokemonList)
+        //        print(self.pokemonList)
     }
     
     func getPokemonID(pokemon: Pokemon) -> Int {
@@ -47,5 +50,27 @@ final class PokemonViewModel: ObservableObject {
                 self.pokemonDetails = data
             }
         }
+    }
+    
+//    func randomPokemon() {
+//        let randPokeID = Int.random(in: 1..<152)
+//        let url = URL(string: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/\(randPokeID).png")!
+//
+//        DispatchQueue.global().async { [weak self] in
+//            if let data = try? Data(contentsOf: url) {
+//                if let image = Image(data) {
+//                    DispatchQueue.main.async {
+//                        self?.playerOneImage = image
+//                    }
+//                }
+//            }
+//        }
+//    }
+    
+    func randomIcon() -> Image {
+        let randIconID = Int.random(in: 0..<iconList.count)
+        let playerImage = Image(systemName: iconList[randIconID])
+        
+        return playerImage
     }
 }

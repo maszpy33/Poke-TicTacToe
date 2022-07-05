@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
 
-final class GameViewModel: ObservableObject {
+class GameViewModel: ObservableObject {
     
     // GAME LOGIC DATA
     @Published var moves: [String] = ["","","","","","","","",""]

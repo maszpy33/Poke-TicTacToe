@@ -14,23 +14,58 @@ struct MainPickerView: View {
     
     @State private var pickerViewSwitch: Bool = false
     
+    @State private var secondaryColor: Color = Color.purple
+    
     var body: some View {
         VStack {
             HStack {
-                Text("Player One ")
-                    .bold()
-                gvm.playerOneImage
-                    .resizable()
-                    .scaledToFit()
+                // PLAYER ONE MENU
+                Menu {
+                    VStack {
+                        Button("Random Icon \(gvm.playerOneName)") {
+                            gvm.playerOneImage = pvm.randomIcon()
+                        }
+                        Button("Random Pokemon for \(gvm.playerOneName)") {
+                            print("nothing happens")
+                        }
+                    }
+                    
+                } label: {
+                    HStack {
+                        Text("Player One ")
+                            .bold()
+                        gvm.playerOneImage
+                            .resizable()
+                            .scaledToFit()
+                    }
+                    .frame(height: 50)
+                    .padding()
+                }
                 
-                Text(" Player Two")
-                    .bold()
-                gvm.playerTwoImage
-                    .resizable()
-                    .scaledToFit()
+                // PLAYER TWO MENU
+                Menu {
+                    VStack {
+                        Button("Random Icon \(gvm.playerTwoName)") {
+                            gvm.playerTwoImage = pvm.randomIcon()
+                        }
+                        Button("Random Pokemon for \(gvm.playerTwoName)") {
+                            print("nothing happens")
+                        }
+                    }
+                    
+                } label: {
+                    HStack {
+                        Text(" Player Two")
+                            .bold()
+                        gvm.playerTwoImage
+                            .resizable()
+                            .scaledToFit()
+                    }
+                    .frame(height: 50)
+                    .padding()
+                }
             }
-            .frame(height: 50)
-            .padding()
+            .foregroundColor(gvm.changeThemeColor(themeColor: gvm.themeColorSecondary))
             
             CustomToggleSwitch(pickerViewSwitch: $pickerViewSwitch, leftButtonText: "Pokemon", rightButtonText: "Icons")
                 .environmentObject(gvm)
@@ -47,9 +82,20 @@ struct MainPickerView: View {
                     .environmentObject(pvm)
             }
         }
+        .toolbar {
+            ToolbarItemGroup(placement: .bottomBar) {
+                Button(action: {
+                    print("random stuff")
+                }, label: {
+                    HStack {
+                        Image(systemName: "r.square")
+                        Text("Random Icon")
+                    }
+                })
+            }
+        }
+        .accentColor(gvm.changeThemeColor(themeColor: gvm.themeColorPrimary))
     }
-    
-    
 }
 
 struct MainPickerView_Previews: PreviewProvider {

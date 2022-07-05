@@ -28,7 +28,8 @@ struct IconPickerView: View {
                                 gvm.playerOneImage = Image(systemName: playerIconString)
                             }
                             Button("PlayerTwo") {
-                                gvm.playerTwoImage = Image(systemName: playerIconString)
+                                gvm.playerTwoImage =
+                                Image(systemName: playerIconString)
                             }
                         } label: {
                             Image(systemName: playerIconString)

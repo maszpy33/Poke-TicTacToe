@@ -22,13 +22,13 @@ struct PokemonView: View {
     var body: some View {
         VStack {
             Menu {
-                Button("PlayerOne") {
-//                    playerOneImage = imageHolder
-                    gvm.playerOneImage = imageHolder
-                }
-                Button("PlayerTwo") {
-//                    playerTwoImage = imageHolder
-                    gvm.playerTwoImage = imageHolder
+                VStack {
+                    Button("PlayerOne") {
+                        gvm.playerOneImage = imageHolder
+                    }
+                    Button("PlayerTwo") {
+                        gvm.playerTwoImage = imageHolder
+                    }
                 }
             } label: {
                 VStack {

@@ -166,9 +166,6 @@ struct GameView: View {
                 }, secondaryButton: .default(Text("Reset Board"), action: gvm.resetGame)
             )
         }
-        //        .alert(isPresented: $gvm.showAlert) {
-        //            Alert(title: Text(gvm.alertTitle), message: Text(gvm.alertMessage), dismissButton: .default(Text("OK")))
-        //        }
     }
 }
 
