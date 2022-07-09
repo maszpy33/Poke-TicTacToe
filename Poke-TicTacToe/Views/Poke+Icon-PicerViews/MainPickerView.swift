@@ -16,6 +16,11 @@ struct MainPickerView: View {
     
     @State private var secondaryColor: Color = Color.purple
     
+    @State private var randPokePlaceholderOne: Image = Image(systemName: "leaf")
+    @State private var randPokePlaceholderTwo: Image = Image(systemName: "leaf")
+    @State private var randIDOne = 1
+    @State private var randIDTwo = 1
+    
     var body: some View {
         VStack {
             HStack {
@@ -25,9 +30,29 @@ struct MainPickerView: View {
                         Button("Random Icon \(gvm.playerOneName)") {
                             gvm.playerOneImage = pvm.randomIcon()
                         }
-                        Button("Random Pokemon for \(gvm.playerOneName)") {
-                            print("nothing happens")
-                        }
+
+                        Button(action: {
+                            randIDOne = Int.random(in: 1..<152)
+                        }, label: {
+                            HStack {
+                                Text("Random Pokemon \(gvm.playerOneName)")
+                                AsyncImage(url: URL(string: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/\(randIDOne).png")) { image in
+                                    if let image = image {
+                                        image
+                                            .resizable()
+                                            .scaledToFit()
+                                            .onAppear {
+                                                gvm.playerOneImage = image
+                                            }
+                                    }
+                                } placeholder: {
+                                    ProgressView()
+//                                        .frame(width: dimensions, height: dimensions)
+                                }
+                                .background(.thinMaterial)
+                                .clipShape(RoundedRectangle(cornerRadius: 15))
+                            }
+                        })
                     }
                     
                 } label: {
@@ -48,9 +73,29 @@ struct MainPickerView: View {
                         Button("Random Icon \(gvm.playerTwoName)") {
                             gvm.playerTwoImage = pvm.randomIcon()
                         }
-                        Button("Random Pokemon for \(gvm.playerTwoName)") {
-                            print("nothing happens")
-                        }
+                        
+                        Button(action: {
+                            randIDTwo = Int.random(in: 1..<152)
+                        }, label: {
+                            HStack {
+                                Text("Random Pokemon \(gvm.playerOneName)")
+                                AsyncImage(url: URL(string: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/\(randIDTwo).png")) { image in
+                                    if let image = image {
+                                        image
+                                            .resizable()
+                                            .scaledToFit()
+                                            .onAppear {
+                                                gvm.playerTwoImage = image
+                                            }
+                                    }
+                                } placeholder: {
+                                    ProgressView()
+//                                        .frame(width: dimensions, height: dimensions)
+                                }
+                                .background(.thinMaterial)
+                                .clipShape(RoundedRectangle(cornerRadius: 15))
+                            }
+                        })
                     }
                     
                 } label: {

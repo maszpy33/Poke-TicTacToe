@@ -44,8 +44,9 @@ struct IconPickerView: View {
                     }
                 }
             }
-            .navigationTitle("Icon-Picker")
-            .navigationBarTitleDisplayMode(.inline)
+//            .navigationTitle("Icon-Picker")
+//            .navigationBarTitleDisplayMode(.inline)
+            .navigationBarHidden(true)
         }
     }
 }

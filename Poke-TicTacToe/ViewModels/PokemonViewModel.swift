@@ -58,7 +58,7 @@ final class PokemonViewModel: GameViewModel {
 //
 //        DispatchQueue.global().async { [weak self] in
 //            if let data = try? Data(contentsOf: url) {
-//                if let image = Image(data) {
+//                if let image = UIImage(data: data) {
 //                    DispatchQueue.main.async {
 //                        self?.playerOneImage = image
 //                    }
